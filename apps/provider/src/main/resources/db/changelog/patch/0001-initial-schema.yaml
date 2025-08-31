@@ -1,0 +1,79 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-all-tables
+      author: thorlauridsen
+      changes:
+        - createTable:
+            tableName: flight
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: flight_number
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: airline
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: origin
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: destination
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: hotel
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: hotel_name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: location
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: rating
+                  type: DOUBLE
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: rental_car
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: company
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: car_model
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: location
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false

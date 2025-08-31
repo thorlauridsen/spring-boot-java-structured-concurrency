@@ -1,0 +1,12 @@
+server:
+  port : 8080
+  shutdown: graceful
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /
+gateway:
+  settings:
+    targetUrl: ${GATEWAY_TARGET_URL:http://localhost:8081}

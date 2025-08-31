@@ -1,0 +1,53 @@
+[versions]
+h2database = "2.3.232"
+jackson = "2.20.0"
+junitPlatformLauncher = "1.12.2"
+liquibase = "4.33.0"
+lombok = "8.14.2"
+postgres = "42.7.7"
+springboot = "3.5.5"
+springDependencyPlugin = "1.1.7"
+springdoc = "2.8.11"
+testcontainers = "1.21.3"
+wiremock = '3.13.1'
+
+[libraries]
+# H2 for an in-memory database
+h2database = { module = "com.h2database:h2", version.ref = "h2database" }
+
+# FasterXML Jackson support for Java 8 date/time
+jackson-datatype-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
+
+# JUnit platform launcher for running JUnit tests
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatformLauncher" }
+
+# Liquibase for managing database changelogs
+liquibase-core = { module = "org.liquibase:liquibase-core", version.ref = "liquibase" }
+
+# PostgreSQL for a live database
+postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
+
+# Spring Boot libraries
+springboot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springboot" }
+springboot-starter-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "springboot" }
+springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
+springboot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "springboot" }
+springboot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springboot" }
+springboot-testcontainers = { module = "org.springframework.boot:spring-boot-testcontainers", version.ref = "springboot" }
+
+# Testcontainers for running PostgreSQL in tests
+testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
+
+# Springdoc provides swagger docs with support for Spring Web MVC
+springdoc-openapi-starter-webmvc = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }
+
+# WireMock for mocking HTTP services in tests
+wiremock = { module = 'org.wiremock:wiremock-standalone', version.ref = 'wiremock' }
+
+[plugins]
+# Lombok
+lombok = { id = "io.freefair.lombok", version.ref = "lombok" }
+
+# Spring plugins
+springboot = { id = "org.springframework.boot", version.ref = "springboot" }
+spring-dependencies = { id = "io.spring.dependency-management", version.ref = "springDependencyPlugin" }
