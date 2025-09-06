@@ -1,0 +1,156 @@
+# This is a sample HTTP request file for testing purposes
+# You can run the application locally and execute these requests in IntelliJ IDEA to test the API
+
+### Get rental cars
+GET http://localhost:8081/rentalcars
+Accept: */*
+
+> {%
+    client.test("Rental cars fetched successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+
+        const body = typeof response.body === 'string'
+            ? JSON.parse(response.body)
+            : response.body;
+
+        client.assert(
+            Array.isArray(body) && body.length > 0,
+            "Rental cars list is missing or empty"
+        );
+
+        client.assert(
+            typeof body[0] === 'object',
+            "First rental car entry is not an object"
+        );
+    });
+%}
+
+### Get flights
+GET http://localhost:8081/flights
+Accept: */*
+
+> {%
+    client.test("Flights fetched successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+
+        const body = typeof response.body === 'string'
+            ? JSON.parse(response.body)
+            : response.body;
+
+        client.assert(
+            Array.isArray(body) && body.length > 0,
+            "Flight list is missing or empty"
+        );
+
+        client.assert(
+            typeof body[0] === 'object',
+            "First flight entry is not an object"
+        );
+    });
+%}
+
+### Get hotels
+GET http://localhost:8081/hotels
+Accept: */*
+
+> {%
+    client.test("Hotels fetched successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+
+        const body = typeof response.body === 'string'
+            ? JSON.parse(response.body)
+            : response.body;
+
+        client.assert(
+            Array.isArray(body) && body.length > 0,
+            "Hotel list is missing or empty"
+        );
+
+        client.assert(
+            typeof body[0] === 'object',
+            "First hotel entry is not an object"
+        );
+    });
+%}
+
+### Get travel details asynchronously
+GET http://localhost:8080/travel/details/async
+Accept: */*
+
+> {%
+    client.test("Travel details fetched successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+
+        const body = typeof response.body === 'string'
+            ? JSON.parse(response.body)
+            : response.body;
+
+        client.assert(
+            Array.isArray(body.flights) && body.flights.length > 0,
+            "Flight list is missing or empty"
+        );
+        client.assert(
+            typeof body.flights[0] === 'object',
+            "First flight entry is not an object"
+        );
+
+        client.assert(
+            Array.isArray(body.hotels) && body.hotels.length > 0,
+            "Hotel list is missing or empty"
+        );
+        client.assert(
+            typeof body.hotels[0] === 'object',
+            "First hotel entry is not an object"
+        );
+
+        client.assert(
+            Array.isArray(body.rentalCars) && body.rentalCars.length > 0,
+            "Rental car list is missing or empty"
+        );
+        client.assert(
+            typeof body.rentalCars[0] === 'object',
+            "First rental car entry is not an object"
+        );
+    });
+%}
+
+### Get travel details synchronously
+GET http://localhost:8080/travel/details/sync
+Accept: */*
+
+> {%
+    client.test("Travel details fetched successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+
+        const body = typeof response.body === 'string'
+            ? JSON.parse(response.body)
+            : response.body;
+
+        client.assert(
+            Array.isArray(body.flights) && body.flights.length > 0,
+            "Flight list is missing or empty"
+        );
+        client.assert(
+            typeof body.flights[0] === 'object',
+            "First flight entry is not an object"
+        );
+
+        client.assert(
+            Array.isArray(body.hotels) && body.hotels.length > 0,
+            "Hotel list is missing or empty"
+        );
+        client.assert(
+            typeof body.hotels[0] === 'object',
+            "First hotel entry is not an object"
+        );
+
+        client.assert(
+            Array.isArray(body.rentalCars) && body.rentalCars.length > 0,
+            "Rental car list is missing or empty"
+        );
+        client.assert(
+            typeof body.rentalCars[0] === 'object',
+            "First rental car entry is not an object"
+        );
+    });
+%}

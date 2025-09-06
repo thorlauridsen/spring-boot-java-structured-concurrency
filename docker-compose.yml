@@ -1,0 +1,49 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: sample-db
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      - service-network
+
+  provider:
+    build:
+      context: .
+      dockerfile: docker/provider/Dockerfile
+    container_name: spring-structured-concurrency-provider
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/sample-db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    image: spring-structured-concurrency-provider:latest
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+    networks:
+      - service-network
+
+  gateway:
+    build:
+      context: .
+      dockerfile: docker/gateway/Dockerfile
+    container_name: spring-structured-concurrency-gateway
+    environment:
+      GATEWAY_TARGET_URL: http://provider:8081
+    image: spring-structured-concurrency-gateway:latest
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    networks:
+      - service-network
+
+networks:
+  service-network:
+    driver: bridge
