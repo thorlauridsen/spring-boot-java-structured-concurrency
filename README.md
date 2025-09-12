@@ -99,16 +99,16 @@ in performance when running synchronous and asynchronous code.
 Example logs can be seen below:
 
 ```
-14:16:45.736 : Fetching travel details synchronously from http://localhost:8081
-14:16:45.736 : Executing request HTTP GET /hotels
-14:16:48.413 : Executing request HTTP GET /flights
-14:16:50.468 : Executing request HTTP GET /rentalcars
-14:16:52.513 : Fetched travel details in 6776 ms
-14:16:56.217 : Fetching travel details asynchronously from http://localhost:8081
-14:16:56.225 : Executing request HTTP GET /hotels
-14:16:56.227 : Executing request HTTP GET /flights
-14:16:56.229 : Executing request HTTP GET /rentalcars
-14:16:58.257 : Fetched travel details in 2041 ms
+07:06:38.123 [nio-8080-exec-1] : Fetching travel details synchronously
+07:06:38.123 [nio-8080-exec-1] : Executing request HTTP GET /flights
+07:06:40.572 [nio-8080-exec-1] : Executing request HTTP GET /hotels
+07:06:42.593 [nio-8080-exec-1] : Executing request HTTP GET /rentalcars
+07:06:44.611 [nio-8080-exec-1] : Fetched travel details in 6487 ms
+07:06:49.110 [nio-8080-exec-2] : Fetching travel details asynchronously
+07:06:49.123 [     virtual-87] : Executing request HTTP GET /hotels
+07:06:49.123 [     virtual-85] : Executing request HTTP GET /flights
+07:06:49.124 [     virtual-89] : Executing request HTTP GET /rentalcars
+07:06:51.141 [nio-8080-exec-2] : Fetched travel details in 2030 ms
 ```
 
 When fetching data from **n** independent external services:
