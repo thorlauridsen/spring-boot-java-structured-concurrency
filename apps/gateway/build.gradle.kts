@@ -18,11 +18,11 @@ dependencies {
 	// Spring Boot and Testcontainers test dependencies
 	testImplementation(local.springboot.starter.test)
 
-	// JUnit platform launcher dependency for running JUnit tests
-	testRuntimeOnly(local.junit.platform.launcher)
-
 	// WireMock for mocking external HTTP services in tests
 	testImplementation(local.wiremock)
+
+	// JUnit platform launcher dependency for running JUnit tests
+	testRuntimeOnly(local.junit.platform.launcher)
 }
 
 tasks.test {
