@@ -13,6 +13,9 @@ dependencies {
 	implementation(local.springboot.starter)
 	implementation(local.springboot.starter.web)
 
+	// Springdoc OpenAPI for providing Swagger documentation
+	implementation(local.springdoc.openapi.starter.webmvc)
+
 	// H2 database dependency for in-memory database
 	runtimeOnly(local.h2database)
 
@@ -21,9 +24,6 @@ dependencies {
 
 	// PostgreSQL database driver
 	runtimeOnly(local.postgres)
-
-	// Springdoc OpenAPI for providing Swagger documentation
-	implementation(local.springdoc.openapi.starter.webmvc)
 
 	// Spring Boot and Testcontainers test dependencies
 	testImplementation(local.springboot.starter.test)
