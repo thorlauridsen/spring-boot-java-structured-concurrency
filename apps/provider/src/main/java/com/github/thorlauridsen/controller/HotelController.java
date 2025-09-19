@@ -6,7 +6,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Hotel controller class.
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Controller;
  * overrides the methods defined in the interface with implementations.
  * The controller is responsible for handling hotel requests and delegating to the service layer.
  */
-@Controller
+@RestController
 @RequiredArgsConstructor
 public class HotelController implements IHotelController {
 
