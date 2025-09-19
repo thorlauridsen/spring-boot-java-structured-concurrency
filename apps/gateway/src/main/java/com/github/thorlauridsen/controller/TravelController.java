@@ -5,7 +5,7 @@ import com.github.thorlauridsen.service.TravelService;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Travel controller class.
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Controller;
  * The controller is responsible for handling requests for travel details
  * and delegating to the service layer.
  */
-@Controller
+@RestController
 @RequiredArgsConstructor
 public class TravelController implements ITravelController {
 
