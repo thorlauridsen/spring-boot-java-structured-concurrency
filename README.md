@@ -151,6 +151,17 @@ and http://localhost:8081/ to view the Swagger documentation for each service.
 - [Liquibase](https://github.com/liquibase/liquibase) - Used to manage database schema changelogs
 - [WireMock](https://github.com/wiremock/wiremock) - For mocking HTTP services in tests
 - [Lombok](https://github.com/projectlombok/lombok) - Used to reduce boilerplate code
+- [Testcontainers](https://github.com/testcontainers) - Creates a temporary PostgreSQL database for tests
+
+## Testing
+You can run the tests for this project using the following command:
+```
+./gradlew test
+```
+Please note that this project uses
+[Testcontainers](https://github.com/testcontainers)
+to create a temporary PostgreSQL database for tests. This requires
+a local Docker instance to be running when executing the tests.
 
 ## Gradle best practices for Kotlin
 [docs.gradle.org](https://docs.gradle.org/current/userguide/performance.html) - [kotlinlang.org](https://kotlinlang.org/docs/gradle-best-practices.html)
