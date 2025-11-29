@@ -75,16 +75,13 @@ public class TravelService {
         log.info("Fetching travel details asynchronously");
         val start = OffsetDateTime.now();
 
-        try (val scope = new StructuredTaskScope.ShutdownOnFailure()) {
+        try (val scope = StructuredTaskScope.open()) {
 
             val flightsTask = scope.fork(() -> fetchList("/flights", Flight.class));
             val hotelsTask = scope.fork(() -> fetchList("/hotels", Hotel.class));
             val carsTask = scope.fork(() -> fetchList("/rentalcars", RentalCar.class));
 
             scope.join();
-            scope.throwIfFailed(
-                    cause -> new IllegalStateException("Failed to fetch travel details", cause)
-            );
 
             val details = new TravelDetails(
                     flightsTask.get(),

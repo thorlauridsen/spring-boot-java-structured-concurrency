@@ -10,12 +10,14 @@ dependencies {
 
 	// Spring Boot dependencies
 	implementation(local.springboot.starter)
-	implementation(local.springboot.starter.web)
+    implementation(local.springboot.starter.restclient)
+    implementation(local.springboot.starter.webmvc)
 
 	// Springdoc OpenAPI for providing Swagger documentation
 	implementation(local.springdoc.openapi.starter.webmvc)
 
-	// Spring Boot and Testcontainers test dependencies
+	// Spring Boot test dependencies
+    testImplementation(local.springboot.resttestclient)
 	testImplementation(local.springboot.starter.test)
 
 	// WireMock for mocking external HTTP services in tests

@@ -11,7 +11,10 @@ dependencies {
 
 	// Spring Boot dependencies
 	implementation(local.springboot.starter)
-	implementation(local.springboot.starter.web)
+	implementation(local.springboot.starter.webmvc)
+
+    // Spring Boot Liquibase dependency for database migrations
+    implementation(local.springboot.starter.liquibase)
 
 	// Springdoc OpenAPI for providing Swagger documentation
 	implementation(local.springdoc.openapi.starter.webmvc)
@@ -19,16 +22,15 @@ dependencies {
 	// H2 database dependency for in-memory database
 	runtimeOnly(local.h2database)
 
-	// Liquibase core dependency for database migrations
-	runtimeOnly(local.liquibase.core)
-
 	// PostgreSQL database driver
 	runtimeOnly(local.postgres)
 
 	// Spring Boot and Testcontainers test dependencies
-	testImplementation(local.springboot.starter.test)
-	testImplementation(local.springboot.testcontainers)
-	testImplementation(local.testcontainers.postgresql)
+    testImplementation(local.springboot.resttestclient)
+    testImplementation(local.springboot.starter.test)
+    testImplementation(local.springboot.testcontainers)
+    testImplementation(local.testcontainers.junit.jupiter)
+    testImplementation(local.testcontainers.postgresql)
 
 	// JUnit platform launcher dependency for running JUnit tests
 	testRuntimeOnly(local.junit.platform.launcher)
