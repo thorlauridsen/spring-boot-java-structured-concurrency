@@ -1,11 +1,11 @@
 [versions]
 h2database = "2.4.240"
 jackson = "2.20.1"
-junitPlatformLauncher = "6.0.1"
+junit-platform-launcher = "6.0.1"
 lombok = "9.1.0"
 postgres = "42.7.8"
 springboot = "4.0.1"
-springDependencyPlugin = "1.1.7"
+spring-dependency-plugin = "1.1.7"
 springdoc = "3.0.1"
 testcontainers = "1.21.4"
 wiremock = '3.13.2'
@@ -15,7 +15,7 @@ wiremock = '3.13.2'
 h2database = { module = "com.h2database:h2", version.ref = "h2database" }
 
 # JUnit platform launcher for running JUnit tests
-junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatformLauncher" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junit-platform-launcher" }
 
 # PostgreSQL for a live database
 postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
@@ -47,4 +47,4 @@ lombok = { id = "io.freefair.lombok", version.ref = "lombok" }
 
 # Spring plugins
 springboot = { id = "org.springframework.boot", version.ref = "springboot" }
-spring-dependencies = { id = "io.spring.dependency-management", version.ref = "springDependencyPlugin" }
+spring-dependencies = { id = "io.spring.dependency-management", version.ref = "spring-dependency-plugin" }
